@@ -13,7 +13,7 @@ router.get('/',function(request,response){
 })
 router.post('/processpay', function (request, response) {
     console.log(request.body);response.send({ success: true });
-    var stripetoken = request.body.stripetoken;
+   /*  var stripetoken = request.body.stripetoken;
     var amountpayable = request.body.amount;
     var charge = stripe.charge.create({
         amount: amountpayable,
@@ -25,7 +25,7 @@ router.post('/processpay', function (request, response) {
             console.log(err);
         else
             response.send({ success: true });
-    })
+    }) */
 })
 
 app.use(router);
