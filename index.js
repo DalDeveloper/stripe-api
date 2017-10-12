@@ -22,7 +22,7 @@ router.post('/processpay', function (request, response) {
         source: stripetoken
     }, function (err, charge) {
         if (err)
-            response.send({ success: false, err:  err.error}); //console.log(err);
+            response.send({ success: false, err:  err}); //console.log(err);
         else
             response.send({ success: true, tranx_data:  charge});
     })
