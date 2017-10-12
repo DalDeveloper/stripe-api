@@ -1,4 +1,4 @@
-var stripe = require('stripe')('pk_test_bHeOJByUPvMgiWiJ0554Vy6D');
+var stripe = require('stripe')('sk_test_g6sTDyC4v6UeQhcr8bU4MC1Z');
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
@@ -12,12 +12,13 @@ router.get('/',function(request,response){
     response.send({ success: true });
 })
 router.post('/processpay', function (request, response) {
+    
     var stripetoken = request.body.stripetoken;
     var amountpayable = request.body.amount;
-    var charge = stripe.charge.create({
-        amount: amountpayable,
+    var charge = stripe.charges.create({
+        amount: amountpayable * 100,
         currency: 'usd',
-        description: 'Sample transaction',
+        description: 'Charity donation',
         source: stripetoken
     }, function (err, charge) {
         if (err)
@@ -28,7 +29,8 @@ router.post('/processpay', function (request, response) {
 })
 
 router.post('/testpay', function (request, response) {
-    response.send({ testpay: true });
+    console.log(request.body);
+    response.send({ testpay: request.body.token });
 })
 
 app.use(router);
