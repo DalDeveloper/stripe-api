@@ -24,7 +24,7 @@ router.post('/processpay', function (request, response) {
         if (err)
             console.log(err);
         else
-            response.send({ success: true });
+            response.send({ success: true, tranx_data:  charge});
     })
 })
 
