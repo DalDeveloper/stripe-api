@@ -8,7 +8,9 @@ var router = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-
+router.get('/',function(request,response){
+    response.send({ success: true });
+})
 router.post('/processpay', function (request, response) {
     var stripetoken = request.body.stripetoken;
     var amountpayable = request.body.amount;
