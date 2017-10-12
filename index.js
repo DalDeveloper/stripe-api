@@ -1,4 +1,4 @@
-var stripe = require('stripe')('sk_test');
+//var stripe = require('stripe')('pk_test_bHeOJByUPvMgiWiJ0554Vy6D');
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
